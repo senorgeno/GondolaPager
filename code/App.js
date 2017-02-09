@@ -7,7 +7,7 @@ import {
   Platform,
 } from 'react-native';
 import OneSignal from 'react-native-onesignal';
-//import { ReactNativeAudioStreaming } from 'react-native-audio-streaming';
+import { ReactNativeAudioStreaming } from 'react-native-audio-streaming';
 
 const url = "http://lacavewebradio.chickenkiller.com:8000/stream.mp3";
 
@@ -32,12 +32,14 @@ class App extends Component {
     }
     onReceived(notification) {
         console.log("Notification received: ", notification);
+        ReactNativeAudioStreaming.play(url, {showIniOSMediaCenter: true, showInAndroidNotifications: true});
     }
     onOpened(openResult) {
       console.log('Message: ', openResult.notification.payload.body);
       console.log('Data: ', openResult.notification.payload.additionalData);
       console.log('isActive: ', openResult.notification.isAppInFocus);
       console.log('openResult: ', openResult);
+      ReactNativeAudioStreaming.stop();
     }
 
     onRegistered(notifData) {
@@ -47,14 +49,7 @@ class App extends Component {
     onIds(device) {
         console.log('Device info: ', device);
     }
-    // componentDidMount() {
-    //     let that = this;
-    //     OneSignal.configure({
-    //         onNotificationOpened: function(message, data, isActive) {
-    //             that.setState({ status : true });
-    //         },
-    //     });
-    // }
+
     onButtonPress = () =>{
         this.setState({status : !this.state.status});
     }

@@ -2933,6 +2933,10 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-audio-streaming:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-audio-streaming/-/react-native-audio-streaming-2.3.1.tgz#9d232b370ea9b0cff5cd8617d5b07788c0ac2e17"
+
 react-native-onesignal:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.0.2.tgz#337aee5cb8adaf15635c5e097550f5199c54b6dc"
