@@ -10,6 +10,7 @@ import OneSignal from 'react-native-onesignal';
 import { ReactNativeAudioStreaming } from 'react-native-audio-streaming';
 
 const url = "http://lacavewebradio.chickenkiller.com:8000/stream.mp3";
+const API_HOST = "http://gondola.genedower.com/";
 
 class App extends Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class App extends Component {
         OneSignal.addEventListener('opened', this.onOpened);
         OneSignal.addEventListener('registered', this.onRegistered);
         OneSignal.addEventListener('ids', this.onIds);
+
     }
     componentWillUnmount() {
         OneSignal.removeEventListener('received', this.onReceived);
@@ -32,7 +34,7 @@ class App extends Component {
     }
     onReceived(notification) {
         console.log("Notification received: ", notification);
-        ReactNativeAudioStreaming.play(url, {showIniOSMediaCenter: true, showInAndroidNotifications: true});
+        ReactNativeAudioStreaming.play(url, {});
     }
     onOpened(openResult) {
       console.log('Message: ', openResult.notification.payload.body);
@@ -56,13 +58,13 @@ class App extends Component {
     statusOfUser() {
         return this.state.status ? 'in the air' : 'on the ground';
     }
-    // componentDidUpdate () {
-    //     if(this.state.status) {
-    //         ReactNativeAudioStreaming.play(url, {showIniOSMediaCenter: true, showInAndroidNotifications: true});
-    //     } else {
-    //         ReactNativeAudioStreaming.stop();
-    //     }
-    // }
+    componentDidUpdate () {
+        if(this.state.status) {
+            ReactNativeAudioStreaming.play(url, {});
+        } else {
+            ReactNativeAudioStreaming.stop();
+        }
+    }
     render() {
         return (
           <View style={styles.container}>
