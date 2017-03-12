@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import Container from '../components/Container';
-import { Header } from '../components/Text';
 import { PrimaryButton } from '../components/Form';
+import styles from '../styles';
+
+console.log(styles);
 
 const ActiveButton = (props) => {
-console.log(props);
+
   if(props.status == 'Ground') {
 	return (<PrimaryButton
 	 title="Set Air"
@@ -37,7 +39,7 @@ class Pilot extends Component {
   render() {
     return (
       <Container>
-	    <Text>
+	    <Text style={styles.header}>
 			{this.state.pilotStatus}
 	  	</Text>
         <ActiveButton status={this.state.pilotStatus} onPress={this.changeStatus} />
