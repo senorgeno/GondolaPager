@@ -22,7 +22,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		21AEBE1ECE9F4AA5B0C43150 /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF727F29B5D46F9A486DAF4 /* libRCTOneSignal.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -35,11 +34,18 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* GondolaPagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GondolaPagerTests.m */; };
-		52ACFA38A5EEDE92D0F200A1 /* libPods-GondolaPager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B9BD222CCE7F738AAA035F /* libPods-GondolaPager.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		7EE4F957EEB6464F98190335 /* libReactNativeAudioStreaming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBF669001F74B7EBA519E4B /* libReactNativeAudioStreaming.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		B07C514B1E4C6DD700E55272 /* libStreamingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C514A1E4C6D7600E55272 /* libStreamingKit.a */; };
+		B07F8C031E73B99600D029D5 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BF91E73B99600D029D5 /* Entypo.ttf */; };
+		B07F8C041E73B99600D029D5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BFA1E73B99600D029D5 /* EvilIcons.ttf */; };
+		B07F8C051E73B99600D029D5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BFB1E73B99600D029D5 /* FontAwesome.ttf */; };
+		B07F8C061E73B99600D029D5 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BFC1E73B99600D029D5 /* Foundation.ttf */; };
+		B07F8C071E73B99600D029D5 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BFD1E73B99600D029D5 /* Ionicons.ttf */; };
+		B07F8C081E73B99600D029D5 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BFE1E73B99600D029D5 /* MaterialCommunityIcons.ttf */; };
+		B07F8C091E73B99600D029D5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8BFF1E73B99600D029D5 /* MaterialIcons.ttf */; };
+		B07F8C0A1E73B99600D029D5 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8C001E73B99600D029D5 /* Octicons.ttf */; };
+		B07F8C0B1E73B99600D029D5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8C011E73B99600D029D5 /* SimpleLineIcons.ttf */; };
+		B07F8C0C1E73B99600D029D5 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07F8C021E73B99600D029D5 /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,34 +238,6 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		B0174A931E4B1F2000D63959 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5D8460E3F2DC41279C3948C6 /* RCTOneSignal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3245CDED1BFEE35C00EABF68;
-			remoteInfo = RCTOneSignal;
-		};
-		B07C51401E4C6D0000E55272 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C341401286E54B87B514EDD7 /* ReactNativeAudioStreaming.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = ReactNativeAudioStreaming;
-		};
-		B07C51471E4C6D7600E55272 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B07C51421E4C6D7600E55272 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D796608261BE7EF75B9CA099BE45490;
-			remoteInfo = "Pods-ReactNativeAudioStreaming";
-		};
-		B07C51491E4C6D7600E55272 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B07C51421E4C6D7600E55272 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8354B6B10F10687EE626DF43663B075A;
-			remoteInfo = StreamingKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -284,21 +262,19 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* GondolaPager-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GondolaPager-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* GondolaPager-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GondolaPager-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		46B9BD222CCE7F738AAA035F /* libPods-GondolaPager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GondolaPager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A611BB7A06D6CF3FB7C32CB /* libPods-GondolaPager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GondolaPager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D8460E3F2DC41279C3948C6 /* RCTOneSignal.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTOneSignal.xcodeproj; path = "../node_modules/react-native-onesignal/ios/RCTOneSignal.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		7130177632A022B6799B8F10 /* Pods-GondolaPager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GondolaPager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GondolaPager/Pods-GondolaPager.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		AEBF669001F74B7EBA519E4B /* libReactNativeAudioStreaming.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeAudioStreaming.a; sourceTree = "<group>"; };
-		B068026A1E4B22A300F63492 /* GondolaPager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GondolaPager.entitlements; path = GondolaPager/GondolaPager.entitlements; sourceTree = "<group>"; };
-		B07C51421E4C6D7600E55272 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "../node_modules/react-native-audio-streaming/ios/Pods/Pods.xcodeproj"; sourceTree = "<group>"; };
-		BBC4938A798C9CFD4076A80E /* Pods-GondolaPager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GondolaPager.release.xcconfig"; path = "Pods/Target Support Files/Pods-GondolaPager/Pods-GondolaPager.release.xcconfig"; sourceTree = "<group>"; };
-		C341401286E54B87B514EDD7 /* ReactNativeAudioStreaming.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeAudioStreaming.xcodeproj; path = "../node_modules/react-native-audio-streaming/ios/ReactNativeAudioStreaming.xcodeproj"; sourceTree = "<group>"; };
-		EFF727F29B5D46F9A486DAF4 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
-		F4343EDF4F834295B99B44BC /* libPods-GondolaPager-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GondolaPager-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBAACA0476D89067FF7B344B /* libPods-GondolaPagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GondolaPagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07F8BF91E73B99600D029D5 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		B07F8BFA1E73B99600D029D5 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		B07F8BFB1E73B99600D029D5 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		B07F8BFC1E73B99600D029D5 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		B07F8BFD1E73B99600D029D5 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		B07F8BFE1E73B99600D029D5 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		B07F8BFF1E73B99600D029D5 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		B07F8C001E73B99600D029D5 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		B07F8C011E73B99600D029D5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		B07F8C021E73B99600D029D5 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +290,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B07C514B1E4C6DD700E55272 /* libStreamingKit.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -326,9 +301,6 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				21AEBE1ECE9F4AA5B0C43150 /* libRCTOneSignal.a in Frameworks */,
-				52ACFA38A5EEDE92D0F200A1 /* libPods-GondolaPager.a in Frameworks */,
-				7EE4F957EEB6464F98190335 /* libReactNativeAudioStreaming.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +409,6 @@
 		13B07FAE1A68108700A75B9A /* GondolaPager */ = {
 			isa = PBXGroup;
 			children = (
-				B068026A1E4B22A300F63492 /* GondolaPager.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -485,7 +456,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B07C51421E4C6D7600E55272 /* Pods.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -497,8 +467,6 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				5D8460E3F2DC41279C3948C6 /* RCTOneSignal.xcodeproj */,
-				C341401286E54B87B514EDD7 /* ReactNativeAudioStreaming.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -515,12 +483,11 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B07F8BF81E73B99600D029D5 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* GondolaPager */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* GondolaPagerTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				EB8E0E70162EE356ED376B62 /* Pods */,
-				C7544CCE16155E0AC47647A7 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -537,49 +504,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0174A861E4B1F2000D63959 /* Products */ = {
+		B07F8BF81E73B99600D029D5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B0174A941E4B1F2000D63959 /* libRCTOneSignal.a */,
+				B07F8BF91E73B99600D029D5 /* Entypo.ttf */,
+				B07F8BFA1E73B99600D029D5 /* EvilIcons.ttf */,
+				B07F8BFB1E73B99600D029D5 /* FontAwesome.ttf */,
+				B07F8BFC1E73B99600D029D5 /* Foundation.ttf */,
+				B07F8BFD1E73B99600D029D5 /* Ionicons.ttf */,
+				B07F8BFE1E73B99600D029D5 /* MaterialCommunityIcons.ttf */,
+				B07F8BFF1E73B99600D029D5 /* MaterialIcons.ttf */,
+				B07F8C001E73B99600D029D5 /* Octicons.ttf */,
+				B07F8C011E73B99600D029D5 /* SimpleLineIcons.ttf */,
+				B07F8C021E73B99600D029D5 /* Zocial.ttf */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B07C51231E4C6D0000E55272 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B07C51411E4C6D0000E55272 /* libReactNativeAudioStreaming.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B07C51431E4C6D7600E55272 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B07C51481E4C6D7600E55272 /* libPods-ReactNativeAudioStreaming.a */,
-				B07C514A1E4C6D7600E55272 /* libStreamingKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C7544CCE16155E0AC47647A7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				46B9BD222CCE7F738AAA035F /* libPods-GondolaPager.a */,
-				5A611BB7A06D6CF3FB7C32CB /* libPods-GondolaPager-tvOS.a */,
-				F4343EDF4F834295B99B44BC /* libPods-GondolaPager-tvOSTests.a */,
-				FBAACA0476D89067FF7B344B /* libPods-GondolaPagerTests.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EB8E0E70162EE356ED376B62 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7130177632A022B6799B8F10 /* Pods-GondolaPager.debug.xcconfig */,
-				BBC4938A798C9CFD4076A80E /* Pods-GondolaPager.release.xcconfig */,
-			);
-			name = Pods;
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,13 +547,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GondolaPager" */;
 			buildPhases = (
-				C0B24A40C0B1202C7B130EE9 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D824429BDA9765E66860046E /* [CP] Embed Pods Frameworks */,
-				4E1C4736F6B3701A32641A3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -675,14 +612,6 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = MWLJ77D5MN;
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -708,10 +637,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B07C51431E4C6D7600E55272 /* Products */;
-					ProjectRef = B07C51421E4C6D7600E55272 /* Pods.xcodeproj */;
-				},
-				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -736,10 +661,6 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
-					ProductGroup = B0174A861E4B1F2000D63959 /* Products */;
-					ProjectRef = 5D8460E3F2DC41279C3948C6 /* RCTOneSignal.xcodeproj */;
-				},
-				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -758,10 +679,6 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = B07C51231E4C6D0000E55272 /* Products */;
-					ProjectRef = C341401286E54B87B514EDD7 /* ReactNativeAudioStreaming.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -950,34 +867,6 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B0174A941E4B1F2000D63959 /* libRCTOneSignal.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTOneSignal.a;
-			remoteRef = B0174A931E4B1F2000D63959 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B07C51411E4C6D0000E55272 /* libReactNativeAudioStreaming.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReactNativeAudioStreaming.a;
-			remoteRef = B07C51401E4C6D0000E55272 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B07C51481E4C6D7600E55272 /* libPods-ReactNativeAudioStreaming.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-ReactNativeAudioStreaming.a";
-			remoteRef = B07C51471E4C6D7600E55272 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B07C514A1E4C6D7600E55272 /* libStreamingKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libStreamingKit.a;
-			remoteRef = B07C51491E4C6D7600E55272 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -992,7 +881,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07F8C0A1E73B99600D029D5 /* Octicons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B07F8C051E73B99600D029D5 /* FontAwesome.ttf in Resources */,
+				B07F8C041E73B99600D029D5 /* EvilIcons.ttf in Resources */,
+				B07F8C0C1E73B99600D029D5 /* Zocial.ttf in Resources */,
+				B07F8C0B1E73B99600D029D5 /* SimpleLineIcons.ttf in Resources */,
+				B07F8C071E73B99600D029D5 /* Ionicons.ttf in Resources */,
+				B07F8C061E73B99600D029D5 /* Foundation.ttf in Resources */,
+				B07F8C091E73B99600D029D5 /* MaterialIcons.ttf in Resources */,
+				B07F8C031E73B99600D029D5 /* Entypo.ttf in Resources */,
+				B07F8C081E73B99600D029D5 /* MaterialCommunityIcons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1042,51 +941,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
-		};
-		4E1C4736F6B3701A32641A3F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GondolaPager/Pods-GondolaPager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0B24A40C0B1202C7B130EE9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D824429BDA9765E66860046E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GondolaPager/Pods-GondolaPager-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1164,11 +1018,6 @@
 				INFOPLIST_FILE = GondolaPagerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1186,11 +1035,6 @@
 				INFOPLIST_FILE = GondolaPagerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1202,10 +1046,8 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7130177632A022B6799B8F10 /* Pods-GondolaPager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GondolaPager/GondolaPager.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = MWLJ77D5MN;
@@ -1224,10 +1066,8 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBC4938A798C9CFD4076A80E /* Pods-GondolaPager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GondolaPager/GondolaPager.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MWLJ77D5MN;
 				INFOPLIST_FILE = GondolaPager/Info.plist;
@@ -1257,11 +1097,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "GondolaPager-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1288,11 +1123,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "GondolaPager-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1318,11 +1148,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "GondolaPager-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.GondolaPager-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1344,11 +1169,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "GondolaPager-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.GondolaPager-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1391,7 +1211,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-onesignal/ios/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1427,7 +1246,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-onesignal/ios/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

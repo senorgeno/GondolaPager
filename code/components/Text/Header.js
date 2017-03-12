@@ -5,7 +5,7 @@ import styles from './styles';
 const Header = (props) => (
   <Text style={styles.header}>{props.children}</Text>
 );
-
+console.log(Header);
 Header.propTypes = {
   children: PropTypes.string,
 };

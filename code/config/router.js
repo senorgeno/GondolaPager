@@ -3,7 +3,7 @@ import { TabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import SignIn from '../screens/SignIn';
 //import SignUp from '../screens/SignUp';
-import Profile from '../screens/Profile';
+import Pilot from '../screens/Pilot';
 
 
 export const Tabs = TabNavigator({
@@ -17,10 +17,10 @@ export const Tabs = TabNavigator({
 		}
     },
     Profile: {
-		screen: Profile,
+		screen: Pilot,
 		navigationOptions: {
 			tabBar: {
-				label: 'Profile',
+				label: 'Pilot',
 				icon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
 			}
 		}

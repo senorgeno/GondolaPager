@@ -3,8 +3,8 @@ import Container from '../components/Container';
 import { Card } from 'react-native-elements';
 import { Input, PrimaryButton, SecondaryButton } from '../components/Form';
 //import Meteor from 'react-native-meteor';
-import Router from '../config/router';
-import config from '../config/config';
+//import Router from '../config/router';
+//import config from '../config/config';
 
 class SignIn extends Component {
   constructor(props) {
@@ -16,15 +16,8 @@ class SignIn extends Component {
     };
   }
 
-  static route = {
-    navigationBar: {
-      visible: true,
-      title: 'Sign In',
-    },
-  }
-
   goToSignUp = () => {
-    this.props.navigator.push(Router.getRoute('signUp'));
+    //this.props.navigator.push(Router.getRoute('signUp'));
   };
 
   signIn = () => {
@@ -74,10 +67,6 @@ class SignIn extends Component {
             loading={this.state.loading}
           />
         </Card>
-        <SecondaryButton
-          title="Sign Up"
-          onPress={this.goToSignUp}
-        />
       </Container>
     );
   }
