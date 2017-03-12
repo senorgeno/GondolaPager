@@ -24,6 +24,9 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+    <!--Include to allow all connections (DANGER). Will need to change this for live-->
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
