@@ -1,58 +1,77 @@
 import React, { Component } from 'react';
+import { Alert, Text } from 'react-native';
 import Container from '../components/Container';
 import { Card } from 'react-native-elements';
 import { Input, PrimaryButton, SecondaryButton } from '../components/Form';
-//import Meteor from 'react-native-meteor';
-//import Router from '../config/router';
-//import config from '../config/config';
+import styles from '../styles';
+import config from '../config/config';
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      emailOrUsername: '',
-      password: '',
+      username: '',
+			password: '',
+			loggedIn: false,
+			expire: null,
+      loading: false
     };
   }
 
-  goToSignUp = () => {
-    //this.props.navigator.push(Router.getRoute('signUp'));
-  };
+  _signIn = () => {
+    const { username, password } = this.state;
+		let that = this;
+    this.setState({ loading: true });
 
-  signIn = () => {
-    // const { emailOrUsername, password } = this.state;
-    //
-    // if (emailOrUsername.length === 0) {
-    //   return this.props.navigator.showLocalAlert('Email or username is required.', config.errorStyles);
-    // }
-    //
-    // if (password.length === 0) {
-    //   return this.props.navigator.showLocalAlert('Password is required.', config.errorStyles);
-    // }
-    //
-    //
-    // this.setState({ loading: true });
-    // return Meteor.loginWithPassword(emailOrUsername, password, (err) => {
-    //   this.setState({ loading: false });
-    //   if (err) {
-    //     this.props.navigator.showLocalAlert(err.reason, config.errorStyles);
-    //   } else {
-    //     this.props.navigator.immediatelyResetStack([Router.getRoute('profile')]);
-    //   }
-    // });
-  };
+    fetch(config.API_HOST + 'api/auth/login?email=' + username + '&pwd=' + password)
+    .then((response) => response.json())
+    .then((json) => {
+      that.setState({ loading: false });
+      if(json.result) {
+  				let t = new Date(json.expire);
+  				let formatted = t.toISOString();
+  				that.setState({
+  					loggedIn : true,
+  					expire : formatted,
+  				});
+          console.log('loggerd in');
+  			} else {
+  				Alert.alert(
+          	'Login Failed',
+          		'Please try again',
+        		);
+  			}
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
 
-  render() {
+  }
+  _signOut = () => {
+    this.setState({
+      username: '',
+      password: '',
+      loggedIn: false,
+      expire: null,
+      pilotStatus: 'Ground',
+    });
+  }
+  render () {
+		if (this.state.loggedIn) {
+			return this.renderStatusScreen();
+		}
+		return this.renderLogin();
+	}
+  renderLogin() {
     return (
       <Container scroll>
         <Card>
           <Input
-            label="Email or Username"
-            placeholder="Please enter your email or username..."
-            keyboardType="email-address"
-            onChangeText={(emailOrUsername) => this.setState({ emailOrUsername })}
-            value={this.state.emailOrUsername}
+            label="Email or PIN"
+            placeholder="Please enter your email or PIN..."
+            onChangeText={(username) => this.setState({ username })}
+            value={this.state.username}
           />
           <Input
             label="Password"
@@ -63,10 +82,23 @@ class SignIn extends Component {
           />
           <PrimaryButton
             title="Sign In"
-            onPress={this.signIn}
+            onPress={this._signIn}
             loading={this.state.loading}
           />
         </Card>
+      </Container>
+    );
+  }
+  renderStatusScreen() {
+    return (
+      <Container scroll>
+        <Card>
+          <Text>You are signed in</Text>
+        </Card>
+        <SecondaryButton
+          title="Sign Out"
+          onPress={this._signOut}
+        />
       </Container>
     );
   }

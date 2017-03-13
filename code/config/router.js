@@ -1,14 +1,31 @@
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import SignIn from '../screens/SignIn';
 import Pilot from '../screens/Pilot';
 import Pilots from '../screens/Pilots';
 
+const SignInStack = StackNavigator({
+  SignIn: {
+    screen: SignIn,
+    navigationOptions: {
+      title: 'Sign In'
+    }
+  }
+});
+
+const PilotsStack = StackNavigator({
+  Pilots: {
+    screen: Pilots,
+    navigationOptions: {
+      title: 'Pilots'
+    }
+  }
+});
 
 export const Tabs = TabNavigator({
     SignIn: {
-  		screen: SignIn,
+  		screen: SignInStack,
   		navigationOptions: {
   			tabBar: {
   				label: 'SignIn',
@@ -26,7 +43,7 @@ export const Tabs = TabNavigator({
   		}
     },
     Pilots: {
-      screen: Pilots,
+      screen: PilotsStack,
       navigationOptions: {
   	    tabBar: {
   	      label: 'Pilots',
