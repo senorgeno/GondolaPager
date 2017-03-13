@@ -21,31 +21,33 @@ class SignIn extends Component {
 
   _signIn = () => {
     const { username, password } = this.state;
-		let that = this;
+    const { navigate } = this.props.navigation;
+
     this.setState({ loading: true });
 
     fetch(config.API_HOST + 'api/auth/login?email=' + username + '&pwd=' + password)
-    .then((response) => response.json())
-    .then((json) => {
-      that.setState({ loading: false });
-      if(json.result) {
-  				let t = new Date(json.expire);
-  				let formatted = t.toISOString();
-  				that.setState({
-  					loggedIn : true,
-  					expire : formatted,
-  				});
-          console.log('loggerd in');
-  			} else {
-  				Alert.alert(
-          	'Login Failed',
-          		'Please try again',
-        		);
-  			}
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({ loading: false });
+        if(json.result) {
+    				let t = new Date(json.expire);
+    				let formatted = t.toISOString();
+    				this.setState({
+    					loggedIn : true,
+    					//expire : formatted,
+    				});
+            this.props.navigation.navigate('Pilot', { ...this.state });
+    			} else {
+    				Alert.alert(
+            	'Login Failed',
+            		'Please try again',
+          		);
+    			}
+
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
 
   }
   _signOut = () => {

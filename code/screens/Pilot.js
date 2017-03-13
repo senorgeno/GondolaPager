@@ -63,15 +63,16 @@ class Pilot extends Component {
     return this.state.airspace === true ? 'Open' : 'Closed';
   }
   render() {
+
     return (
       <Container>
         <Card>
           <Text style={styles.header}>
-    		   GA756 Status: {this._airSpaceStatus()}
+    		    GA756 Status: {this._airSpaceStatus()}
     	  	</Text>
         </Card>
 	      <Text style={styles.header}>
-  		  Pilot Status: {this.state.pilotStatus}
+  		    Pilot Status: {this.state.pilotStatus}
   	  	</Text>
 
         <ActiveButton status={this.state.pilotStatus} onPress={this.changeStatus} />
