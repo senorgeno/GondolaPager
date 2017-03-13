@@ -5,50 +5,58 @@ import SignIn from '../screens/SignIn';
 import Pilot from '../screens/Pilot';
 import Pilots from '../screens/Pilots';
 
-const SignInStack = StackNavigator({
-  SignIn: {
+export const AppNavigator = StackNavigator({
+  Main: {
     screen: SignIn,
     navigationOptions: {
-      title: 'Sign In'
+      title: 'Login'
     }
-  }
-});
-
-const PilotsStack = StackNavigator({
-  Pilots: {
-    screen: Pilots,
+  },
+  Pilot: {
+    screen: Pilot,
     navigationOptions: {
-      title: 'Pilots'
+      title: 'Pilot'
     }
   }
 });
 
-export const Tabs = TabNavigator({
-    SignIn: {
-  		screen: SignInStack,
-  		navigationOptions: {
-  			tabBar: {
-  				label: 'SignIn',
-  				icon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
-  			}
-  		}
-    },
-    Pilot: {
-  		screen: Pilot,
-  		navigationOptions: {
-  	    tabBar: {
-  	      label: 'Pilot',
-  			  icon: ({ tintColor }) => <Icon name="airplanemode-active" size={35} color={tintColor} />
-  			}
-  		}
-    },
-    Pilots: {
-      screen: PilotsStack,
-      navigationOptions: {
-  	    tabBar: {
-  	      label: 'Pilots',
-  			  icon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
-  			}
-  		}
-    }
-});
+
+
+// const PilotsStack = StackNavigator({
+//   Pilots: {
+//     screen: Pilots,
+//     navigationOptions: {
+//       title: 'Pilots'
+//     }
+//   }
+// });
+//
+// export const Tabs = TabNavigator({
+//     SignIn: {
+//   		screen: SignInStack,
+//   		navigationOptions: {
+//   			tabBar: {
+//   				label: 'SignIn',
+//   				icon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+//   			}
+//   		}
+//     },
+//     Pilot: {
+//   		screen: Pilot,
+//   		navigationOptions: {
+//   	    tabBar: {
+//   	      label: 'Pilot',
+//   			  icon: ({ tintColor }) => <Icon name="airplanemode-active" size={35} color={tintColor} />
+//   			}
+//   		}
+//     },
+//     Pilots: {
+//       screen: PilotsStack,
+//       navigationOptions: {
+//   	    tabBar: {
+//   	      label: 'Pilots',
+//   			  icon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
+//   			}
+//   		}
+//     }
+// });
