@@ -44,7 +44,7 @@ class Pilot extends Component {
   _checkFlyingStatus = () => {
   	let that = this;
 
-  	fetch(config.API_HOST + 'api/FlyingStatus/1')
+  	fetch(config.AIRSPACE_STATUS_URL)
   	.then((response) => response.json())
   	.then((json) => {
 
