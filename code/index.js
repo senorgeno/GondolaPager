@@ -40,12 +40,18 @@ const initialNavState = {
   ],
 };
 
-const initialAuthState = { isLoggedIn: false };
+const initialAuthState = {
+  isLoggedIn: false,
+};
+
+const initialAirSpaceState = {
+  active: true,
+};
 
 const AppReducer = combineReducers({
   nav: (state = initialNavState, action) => {
     if (action.type === 'Login') {
-      return AppNavigator.router.getStateForAction(NavigationActions.back(), state);
+      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Pilot' }), state);
     }
     if (action.type === 'Logout') {
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Main' }), state);
@@ -60,6 +66,9 @@ const AppReducer = combineReducers({
       return { ...state, isLoggedIn: false };
     }
     return state;
+  },
+  airspace: (state = initialAirSpaceState, action) => {
+      return { ...state, active: ! state.airspace };
   },
 });
 

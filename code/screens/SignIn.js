@@ -9,43 +9,22 @@ import { NavigationActions } from 'react-navigation';
 import config from '../config/config';
 
 
-const LoginStatusMessage = connect(state => ({
-  isLoggedIn: state.auth.isLoggedIn,
-}))(({ isLoggedIn, dispatch }) => {
-  if (!isLoggedIn) {
-    return <Text>Please log in</Text>;
-  }
-  return (
-    <View>
-      <Text style={styles.welcome}>
-        {'You are "logged in" right now'}
-      </Text>
-      <Button
-        onPress={() => dispatch(NavigationActions.navigate({ routeName: 'Pilot' }))}
-        title="Profile"
-      />
-    </View>
-  );
-});
-
-const AuthButton = connect(state => ({
-  isLoggedIn: state.auth.isLoggedIn,
-}), dispatch => ({
-  logout: () => dispatch({ type: 'Logout' }),
-  login: () => dispatch(NavigationActions.navigate({ routeName: 'Pilot' })),
-}))(({ logout, login, isLoggedIn }) => (
-  <Button
-    title={isLoggedIn ? 'Log Out' : 'Log In'}
-    onPress={isLoggedIn ? logout : login}
-  />
-));
-
-const SignIn = () => (
+const SignIn = ({ navigation }) => (
   <View style={styles.container}>
-    <LoginStatusMessage />
-    <AuthButton />
+    <Text style={styles.welcome}>
+      Screen A
+    </Text>
+    <Text style={styles.instructions}>
+      This is the login screen
+    </Text>
+    <Button
+      onPress={() => navigation.dispatch({ type: 'Login' })}
+      title="Log in"
+    />
   </View>
 );
+
+
 // SignIn.navigationOptions = {
 //   title: 'Home Screen',
 // };
@@ -157,6 +136,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
 });
 
