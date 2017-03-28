@@ -29,7 +29,7 @@ import { AppNavigator } from './config/router';
 const AppWithNavigationState = connect(state => ({
   nav: state.nav,
 }))(({ dispatch, nav }) => (
-  <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
+    <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
 ));
 
 const initialNavState = {
@@ -68,7 +68,9 @@ const AppReducer = combineReducers({
     return state;
   },
   airspace: (state = initialAirSpaceState, action) => {
-      return { ...state, active: ! state.airspace };
+    // console.log('-----Airspace State------');
+    // console.log(state);
+    return { ...state, active: ! state.airspace };
   },
 });
 

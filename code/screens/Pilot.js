@@ -24,7 +24,9 @@ const ActiveButton = (props) => {
 }
 
 class Pilot extends Component {
+
     render() {
+      //console.log(this.props);
       const { airspace } = this.props;
       return (
         <Container>

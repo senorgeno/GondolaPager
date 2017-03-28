@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import { Alert, Text, StyleSheet, Button, View } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Container from '../components/Container';
 import { Card } from 'react-native-elements';
 import { Input, PrimaryButton, SecondaryButton } from '../components/Form';
 import { NavigationActions } from 'react-navigation';
 //import styles from '../styles';
 import config from '../config/config';
+
+const AuthButton = connect(state => ({
+  isLoggedIn: state.auth.isLoggedIn,
+}), dispatch => ({
+  logout: () => dispatch({ type: 'Logout' }),
+  login: () => dispatch({ type: 'Login' }),
+}))(({ logout, login, isLoggedIn }) => (
+  <Button
+    title={isLoggedIn ? 'Log Out' : 'Log In'}
+    onPress={isLoggedIn ? logout : login}
+  />
+));
 
 
 const SignIn = ({ navigation }) => (
@@ -17,13 +30,47 @@ const SignIn = ({ navigation }) => (
     <Text style={styles.instructions}>
       This is the login screen
     </Text>
-    <Button
-      onPress={() => navigation.dispatch({ type: 'Login' })}
-      title="Log in"
-    />
+    <AuthButton />
   </View>
 );
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.auth.isLoggedIn
+  }
+}
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     actions: bindActionCreators({
+//       logout: () => dispatch({ type: 'Logout' }),
+//       login: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
+//     }, dispatch)
+//   }
+// }
+
+export default connect(
+  mapStateToProps
+)(SignIn);
 
 // SignIn.navigationOptions = {
 //   title: 'Home Screen',
@@ -130,23 +177,6 @@ const SignIn = ({ navigation }) => (
 //   }
 // }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
-export default SignIn;
+
+//export default SignIn;
