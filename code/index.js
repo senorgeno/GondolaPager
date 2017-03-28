@@ -45,7 +45,7 @@ const initialAuthState = {
 };
 
 const initialAirSpaceState = {
-  active: true,
+  pilotActive: false,
 };
 
 const AppReducer = combineReducers({
@@ -68,9 +68,10 @@ const AppReducer = combineReducers({
     return state;
   },
   airspace: (state = initialAirSpaceState, action) => {
-    // console.log('-----Airspace State------');
-    // console.log(state);
-    return { ...state, active: ! state.airspace };
+    if(action.type === 'Air' || action.type === 'Ground') {
+        return { ...state, pilotActive: ! state.pilotActive };
+    }
+    return state;
   },
 });
 
@@ -89,24 +90,5 @@ class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 export default App;

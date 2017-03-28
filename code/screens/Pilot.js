@@ -7,40 +7,34 @@ import { PrimaryButton } from '../components/Form';
 import styles from '../styles';
 import config from '../config/config';
 
-const ActiveButton = (props) => {
+const ActiveButton = connect(state => ({
+  pilotActive: state.airspace.pilotActive,
+}), dispatch => ({
+  setGround: () => dispatch({ type: 'Ground' }),
+  setAir: () => dispatch({ type: 'Air' }),
+}))(({ setGround, setAir, pilotActive }) => (
+  <PrimaryButton
+    title={pilotActive ? 'Set Ground' : 'Set Air'}
+    onPress={pilotActive ? setGround : setAir}
+  />
+));
 
-  if(props.status == 'Ground') {
-	return (<PrimaryButton
-	 title="Set Air"
-	 {...props}
-	 />)
-  } else {
-	 return (<PrimaryButton
-  	 title="Set Ground"
-	 {...props}
-  	 />)
-  }
-
-}
 
 class Pilot extends Component {
-
     render() {
-      //console.log(this.props);
-      const { airspace } = this.props;
+      const { pilotActive, airspace } = this.props.airspace;
+      
       return (
         <Container>
           <Card>
             <Text style={styles.header}>
-      		    GA756 Status: {airspace ? 'Active' : 'Closed' }
+              GA756 Status: { airspace ? 'Active' : 'Closed' }
       	  	</Text>
           </Card>
   	      <Text style={styles.header}>
-    		    Pilot Status: PILOT STATUS
+    		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
     	  	</Text>
-
           <ActiveButton />
-
         </Container>
       );
     }
@@ -48,7 +42,9 @@ class Pilot extends Component {
 
 function mapStateToProps(state) {
   return {
-    airspace: state.airspace.active
+    airspace: {
+      pilotActive: state.airspace.pilotActive
+    }
   }
 }
 
