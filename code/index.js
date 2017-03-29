@@ -48,27 +48,28 @@ const initialAirSpaceState = {
   pilotActive: false,
 };
 
+//@TODO export reducers
 const AppReducer = combineReducers({
   nav: (state = initialNavState, action) => {
-    if (action.type === 'Login') {
+    if (action.type === 'LOG_IN_USER') {
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Pilot' }), state);
     }
-    if (action.type === 'Logout') {
+    if (action.type === 'LOG_OUT_USER') {
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Main' }), state);
     }
     return AppNavigator.router.getStateForAction(action, state);
   },
   auth: (state = initialAuthState, action) => {
-    if (action.type === 'Login') {
+    if (action.type === 'LOG_IN_USER') {
       return { ...state, isLoggedIn: true };
     }
-    if (action.type === 'Logout') {
+    if (action.type === 'LOG_OUT_USER') {
       return { ...state, isLoggedIn: false };
     }
     return state;
   },
   airspace: (state = initialAirSpaceState, action) => {
-    if(action.type === 'Air' || action.type === 'Ground') {
+    if(action.type === 'PILOT_STATUS') {
         return { ...state, pilotActive: ! state.pilotActive };
     }
     return state;

@@ -8,21 +8,17 @@ import { Input, PrimaryButton, SecondaryButton } from '../components/Form';
 import { NavigationActions } from 'react-navigation';
 //import styles from '../styles';
 import config from '../config/config';
+import Actions from '../actions';
 
-const AuthButton = connect(state => ({
-  isLoggedIn: state.auth.isLoggedIn,
-}), dispatch => ({
-  logout: () => dispatch({ type: 'Logout' }),
-  login: () => dispatch({ type: 'Login' }),
-}))(({ logout, login, isLoggedIn }) => (
+const AuthButton = ({ isLoggedIn, actions }) => (
   <Button
     title={isLoggedIn ? 'Log Out' : 'Log In'}
-    onPress={isLoggedIn ? logout : login}
+    onPress={(isLoggedIn ? () => actions.logOutUser() : () => actions.logInUser())}
   />
-));
+);
 
 
-const SignIn = ({ navigation }) => (
+const SignIn = (props) => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
       Screen A
@@ -30,7 +26,7 @@ const SignIn = ({ navigation }) => (
     <Text style={styles.instructions}>
       This is the login screen
     </Text>
-    <AuthButton />
+    <AuthButton {...props} />
   </View>
 );
 
@@ -59,17 +55,15 @@ function mapStateToProps(state) {
   }
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     actions: bindActionCreators({
-//       logout: () => dispatch({ type: 'Logout' }),
-//       login: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
-//     }, dispatch)
-//   }
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  }
+}
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SignIn);
 
 // SignIn.navigationOptions = {

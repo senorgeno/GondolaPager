@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Container from '../components/Container';
 import { Card } from 'react-native-elements';
 import { PrimaryButton } from '../components/Form';
 import styles from '../styles';
 import config from '../config/config';
+import Actions from '../actions';
 
-const ActiveButton = connect(state => ({
-  pilotActive: state.airspace.pilotActive,
-}), dispatch => ({
-  setGround: () => dispatch({ type: 'Ground' }),
-  setAir: () => dispatch({ type: 'Air' }),
-}))(({ setGround, setAir, pilotActive }) => (
-  <PrimaryButton
-    title={pilotActive ? 'Set Ground' : 'Set Air'}
-    onPress={pilotActive ? setGround : setAir}
-  />
-));
-
+const ActiveButton = ({ airspace, actions }) => {
+  return (
+      <PrimaryButton
+        title={airspace.pilotActive ? 'Set Ground' : 'Set Air'}
+        onPress={() => actions.changePilotStatus()}
+      />
+  )
+}
 
 class Pilot extends Component {
     render() {
       const { pilotActive, airspace } = this.props.airspace;
-      
+      console.log(this.props);
       return (
         <Container>
           <Card>
@@ -34,7 +32,7 @@ class Pilot extends Component {
   	      <Text style={styles.header}>
     		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
     	  	</Text>
-          <ActiveButton />
+          <ActiveButton {...this.props} />
         </Container>
       );
     }
@@ -50,7 +48,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    //actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   }
 }
 
