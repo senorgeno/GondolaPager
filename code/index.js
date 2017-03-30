@@ -42,8 +42,6 @@ const initialNavState = {
 
 const initialAuthState = {
   isLoggedIn: false,
-  username: null,
-  password: null
 
 };
 
