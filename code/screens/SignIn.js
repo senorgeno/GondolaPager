@@ -13,22 +13,53 @@ import Actions from '../actions';
 const AuthButton = ({ isLoggedIn, actions }) => (
   <Button
     title={isLoggedIn ? 'Log Out' : 'Log In'}
-    onPress={(isLoggedIn ? () => actions.logOutUser() : () => actions.logInUser())}
+    onPress={isLoggedIn ? () => actions.logOutUser() : () => actions.logInUser()}
   />
 );
 
 
-const SignIn = (props) => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Screen A
-    </Text>
-    <Text style={styles.instructions}>
-      This is the login screen
-    </Text>
-    <AuthButton {...props} />
-  </View>
-);
+class SignIn extends Component  {
+
+  constructor(props) {
+    super(props);
+
+      this.state = {
+        username: '',
+  			password: '',
+      };
+  }
+  render() {
+    console.log(this.props);
+      return (
+        <Container scroll>
+          <Card>
+            <Input
+              label="Email or PIN"
+              placeholder="Please enter your email or PIN..."
+              onChangeText={(username) => this.setState({ username })}
+              value={this.state.username}
+            />
+            <Input
+              label="Password"
+              placeholder="Please enter your password..."
+              secureTextEntry
+              onChangeText={(password) => this.setState({ password })}
+              value={this.state.password}
+            />
+            <PrimaryButton
+              title="Sign In"
+              onPress={this._signIn}
+              loading={this.state.loading}
+            />
+          </Card>
+        </Container>
+
+      )
+    }
+
+
+}
+
 
 const styles = StyleSheet.create({
   container: {
