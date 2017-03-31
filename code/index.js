@@ -37,7 +37,7 @@ const initialNavState = {
   routes: [
     { key: 'InitA', routeName: 'SignIn' },
     { key: 'InitB', routeName: 'Pilot' },
-    //{ key: 'InitC', routeName: 'Login' }
+    { key: 'InitC', routeName: 'Pilots' }
 
   ],
 };
