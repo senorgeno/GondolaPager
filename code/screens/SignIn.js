@@ -28,34 +28,31 @@ class SignIn extends Component  {
       };
   }
   render() {
-    console.log(this.props);
-      return (
-        <Container scroll>
-          <Card>
-            <Input
-              label="Email or PIN"
-              placeholder="Please enter your email or PIN..."
-              onChangeText={(username) => this.setState({ username })}
-              value={this.state.username}
-            />
-            <Input
-              label="Password"
-              placeholder="Please enter your password..."
-              secureTextEntry
-              onChangeText={(password) => this.setState({ password })}
-              value={this.state.password}
-            />
-            <PrimaryButton
-              title="Sign In"
-              onPress={this._signIn}
-              loading={this.state.loading}
-            />
-          </Card>
-        </Container>
-
-      )
-    }
-
+    return (
+      <Container scroll>
+        <Card>
+          <Input
+            label="Email or PIN"
+            placeholder="Please enter your email or PIN..."
+            onChangeText={(username) => this.setState({ username })}
+            value={this.state.username}
+          />
+          <Input
+            label="Password"
+            placeholder="Please enter your password..."
+            secureTextEntry
+            onChangeText={(password) => this.setState({ password })}
+            value={this.state.password}
+          />
+          <PrimaryButton
+            title="Sign In"
+            onPress={this._signIn}
+            loading={this.state.loading}
+          />
+        </Card>
+      </Container>
+    )
+  }
 
 }
 

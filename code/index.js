@@ -35,8 +35,10 @@ const AppWithNavigationState = connect(state => ({
 const initialNavState = {
   index: 1,
   routes: [
-    { key: 'InitA', routeName: 'Main' },
+    { key: 'InitA', routeName: 'SignIn' },
     { key: 'InitB', routeName: 'Pilot' },
+    //{ key: 'InitC', routeName: 'Login' }
+
   ],
 };
 
@@ -56,8 +58,9 @@ const AppReducer = combineReducers({
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Pilot' }), state);
     }
     if (action.type === 'LOG_OUT_USER') {
-      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Main' }), state);
+      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'SignIn' }), state);
     }
+    //console.log(action);
     return AppNavigator.router.getStateForAction(action, state);
   },
   auth: (state = initialAuthState, action) => {
@@ -78,11 +81,12 @@ const AppReducer = combineReducers({
 });
 
 class App extends React.Component {
-  store = createStore(AppReducer, undefined, autoRehydrate());
+  store = createStore(AppReducer);
+  //store = createStore(AppReducer, undefined, autoRehydrate());
 
-  componentDidMount() {
-    persistStore(this.store, { storage: AsyncStorage });
-  }
+  // componentDidMount() {
+  //   persistStore(this.store, { storage: AsyncStorage });
+  // }
 
   render() {
     return (

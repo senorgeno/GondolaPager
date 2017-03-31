@@ -5,17 +5,32 @@ import SignIn from '../screens/SignIn';
 import Pilot from '../screens/Pilot';
 import Pilots from '../screens/Pilots';
 
-export const AppNavigator = StackNavigator({
-  Main: {
+// const LoginInStack = StackNavigator({
+//   Login: {
+//     screen: SignIn,
+//     navigationOptions: {
+//       title: 'Login'
+//     }
+//   }
+// });
+
+export const AppNavigator = TabNavigator({
+  SignIn: {
     screen: SignIn,
     navigationOptions: {
-      title: 'Login'
+      tabBar: {
+				label: 'SignIn',
+				icon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+			}
     }
   },
   Pilot: {
     screen: Pilot,
     navigationOptions: {
-      title: 'Pilot'
+      tabBar: {
+	      label: 'Pilot',
+			  icon: ({ tintColor }) => <Icon name="airplanemode-active" size={35} color={tintColor} />
+			}
     }
   }
 });
