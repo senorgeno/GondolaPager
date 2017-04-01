@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Container from '../components/Container';
+import Container from '../../components/Container';
 import { List, ListItem } from 'react-native-elements';
-import config from '../config/config';
+import config from '../../config/config';
 
 
 

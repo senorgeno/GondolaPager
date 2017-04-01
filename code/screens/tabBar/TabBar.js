@@ -1,14 +1,14 @@
 import { TabNavigator } from 'react-navigation';
 // Tab-Navigators
-import TabOneNavigation from '../auth/navigation';
+import TabOneNavigation from '../SignIn/Navigation';
 import TabTwoNavigation from '../Pilot/Navigation';
-// import TabThreeNavigation from '../tabThree/views/TabThreeNavigation'
+import TabThreeNavigation from '../Pilots/Navigation';
 
 
 const routeConfiguration = {
   TabOneNavigation: { screen: TabOneNavigation },
   TabTwoNavigation: { screen: TabTwoNavigation },
-  // TabThreeNavigation: { screen: TabThreeNavigation },
+  TabThreeNavigation: { screen: TabThreeNavigation },
 }
 
 //other settings for tab bar

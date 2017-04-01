@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 // Navigation
-import TabBarNavigation from './screens/tabBar/TabBarNavigation';
+import TabBarNavigation from './screens/TabBar/TabBarNavigation';
 
 export default class App extends React.Component {
 

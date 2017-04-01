@@ -3,7 +3,7 @@ import React from 'react';
 
 // Navigation
 import { addNavigationHelpers } from 'react-navigation';
-import { NavigatorTabOne } from './config';
+import { NavigatorTabOne } from './navigationConfig';
 
 // Redux
 import { connect } from 'react-redux';

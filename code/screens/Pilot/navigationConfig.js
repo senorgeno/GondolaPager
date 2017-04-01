@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 
 // Screens
-import Pilot from './index';
+import Pilot from './Pilot';
 
 const routeConfiguration = {
   TabTwoScreenOne: { screen: Pilot },

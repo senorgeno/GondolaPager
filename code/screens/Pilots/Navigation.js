@@ -1,31 +1,35 @@
 // React
 import React from 'react';
+
 // Navigation
 import { addNavigationHelpers } from 'react-navigation';
-import { NavigatorTabTwo } from './navigationConfig';
-//Redux
+import { NavigatorTabThree } from './navigationConfig';
+
+// Redux
 import { connect } from 'react-redux';
+
 // Icon
 import { Icon } from 'react-native-elements';
 
+
 const mapStateToProps = (state) => {
  return {
-   navigationState: state.tabTwo
- }
+  navigationState: state.tabThree
+  }
 }
 
-class TabTwoNavigation extends React.Component {
+class TabThreeNavigation extends React.Component {
   static navigationOptions = {
-    tabBar: {
+    tabBar:{
       label: 'Pilots',
-      icon: ({ tintColor }) => <Icon name="airplanemode-active" size={35} color={tintColor} />
+      icon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
     }
   }
 
-render(){
-    const { dispatch, navigationState} = this.props
+  render(){
+    const { navigationState, dispatch } = this.props
     return (
-      <NavigatorTabTwo
+      <NavigatorTabThree
         navigation={
           addNavigationHelpers({
             dispatch: dispatch,
@@ -37,4 +41,4 @@ render(){
   }
 }
 
-export default connect(mapStateToProps)(TabTwoNavigation)
+export default connect(mapStateToProps)(TabThreeNavigation)
