@@ -1,100 +1,85 @@
 import React from 'react';
-import {
-  AppRegistry,
-  AsyncStorage,
-  Button,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import {
-  NavigationActions,
-  addNavigationHelpers,
-  StackNavigator,
-} from 'react-navigation';
-import {
-  Provider,
-  connect,
-} from 'react-redux';
-import {
-  createStore,
-  combineReducers,
-} from 'redux';
-import {
-  persistStore,
-  autoRehydrate,
-} from 'redux-persist';
-import { AppNavigator } from './config/router';
+import { Provider } from 'react-redux';
 
-const AppWithNavigationState = connect(state => ({
-  nav: state.nav,
-}))(({ dispatch, nav }) => (
-    <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
-));
+import store from './store';
 
-const initialNavState = {
-  index: 1,
-  routes: [
-    { key: 'InitA', routeName: 'SignIn' },
-    { key: 'InitB', routeName: 'Pilot' },
-    { key: 'InitC', routeName: 'Pilots' }
+// Navigation
+import TabBarNavigation from './screens/tabBar/TabBarNavigation';
 
-  ],
-};
+export default class App extends React.Component {
 
-const initialAuthState = {
-  isLoggedIn: false,
-
-};
-
-const initialAirSpaceState = {
-  pilotActive: false,
-};
-
-//@TODO export reducers
-const AppReducer = combineReducers({
-  nav: (state = initialNavState, action) => {
-    if (action.type === 'LOG_IN_USER') {
-      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Pilot' }), state);
-    }
-    if (action.type === 'LOG_OUT_USER') {
-      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'SignIn' }), state);
-    }
-    //console.log(action);
-    return AppNavigator.router.getStateForAction(action, state);
-  },
-  auth: (state = initialAuthState, action) => {
-    if (action.type === 'LOG_IN_USER') {
-      return { ...state, isLoggedIn: true };
-    }
-    if (action.type === 'LOG_OUT_USER') {
-      return { ...state, isLoggedIn: false };
-    }
-    return state;
-  },
-  airspace: (state = initialAirSpaceState, action) => {
-    if(action.type === 'PILOT_STATUS') {
-        return { ...state, pilotActive: ! state.pilotActive };
-    }
-    return state;
-  },
-});
-
-class App extends React.Component {
-  store = createStore(AppReducer);
-  //store = createStore(AppReducer, undefined, autoRehydrate());
-
-  // componentDidMount() {
-  //   persistStore(this.store, { storage: AsyncStorage });
-  // }
-
-  render() {
-    return (
-      <Provider store={this.store}>
-        <AppWithNavigationState />
+  render(){
+    return(
+      <Provider store={store}>
+        <TabBarNavigation />
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+//@TODO export reducers
+// const AppReducer = combineReducers({
+//   nav: (state = initialNavState, action) => {
+//     if (action.type === 'LOG_IN_USER') {
+//       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Pilot' }), state);
+//     }
+//     if (action.type === 'LOG_OUT_USER') {
+//       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'SignIn' }), state);
+//     }
+//     //console.log(action);
+//     return AppNavigator.router.getStateForAction(action, state);
+//   },
+//   auth: (state = initialAuthState, action) => {
+//     if (action.type === 'LOG_IN_USER') {
+//       return { ...state, isLoggedIn: true };
+//     }
+//     if (action.type === 'LOG_OUT_USER') {
+//       return { ...state, isLoggedIn: false };
+//     }
+//     return state;
+//   },
+//   airspace: (state = initialAirSpaceState, action) => {
+//     if(action.type === 'PILOT_STATUS') {
+//         return { ...state, pilotActive: ! state.pilotActive };
+//     }
+//     return state;
+//   },
+// });
+
+// Middleware
+// const middleware = () => {
+//   return applyMiddleware(createLogger())
+// }
+//
+// class App extends React.Component {
+//
+//   constructor(props) {
+//     super(props);
+//   }
+//   store = createStore(
+//     combineReducers({
+//       tabBar: tabBarReducer,
+//       tabOne: (state,action) => NavigatorTabOne.router.getStateForAction(action,state),
+//
+//       // tabTwo: (state,action) => NavigatorTabTwo.router.getStateForAction(action,state),
+//       //
+//       // tabThree: (state,action) => NavigatorTabThree.router.getStateForAction(action,state),
+//     }),
+//     middleware(),
+//   );
+//   //store = createStore(AppReducer, undefined, autoRehydrate());
+//
+//   // componentDidMount() {
+//   //   persistStore(this.store, { storage: AsyncStorage });
+//   // }
+//
+//   render() {
+//     return (
+//       <Provider store={this.store}>
+//         <TabBarNavigation />
+//       </Provider>
+//     );
+//   }
+// }
+//
+// export default App;

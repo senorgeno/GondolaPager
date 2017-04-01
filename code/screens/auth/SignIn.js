@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import { Alert, Text, StyleSheet, Button, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Container from '../components/Container';
+import Container from '../../components/Container';
 import { Card } from 'react-native-elements';
-import { Input, PrimaryButton, SecondaryButton } from '../components/Form';
+import { Input, PrimaryButton, SecondaryButton } from '../../components/Form';
 import { NavigationActions } from 'react-navigation';
 //import styles from '../styles';
-import config from '../config/config';
-import Actions from '../actions';
+//import config from '../config/config';
+//import Actions from '../actions';
 
-const AuthButton = ({ isLoggedIn, actions }) => (
-  <Button
-    title={isLoggedIn ? 'Log Out' : 'Log In'}
-    onPress={isLoggedIn ? () => actions.logOutUser() : () => actions.logInUser()}
-  />
-);
+// const AuthButton = ({ isLoggedIn, actions }) => (
+//   <Button
+//     title={isLoggedIn ? 'Log Out' : 'Log In'}
+//     onPress={isLoggedIn ? () => actions.logOutUser() : () => actions.logInUser()}
+//   />
+// );
 
-class SignIn extends Component  {
+export default class SignIn extends Component  {
 
   constructor(props) {
     super(props);
@@ -55,27 +55,6 @@ class SignIn extends Component  {
   }
 
 }
-
-function mapStateToProps(state) {
-  return {
-    isLoggedIn: state.auth.isLoggedIn
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignIn);
-
-// SignIn.navigationOptions = {
-//   title: 'Home Screen',
-// };
 
 
 // class SignIn extends Component {

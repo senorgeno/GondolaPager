@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Container from '../components/Container';
+import Container from '../../components/Container';
 import { Card } from 'react-native-elements';
-import { PrimaryButton } from '../components/Form';
-import styles from '../styles';
-import config from '../config/config';
-import Actions from '../actions';
+import { PrimaryButton } from '../../components/Form';
+import styles from '../../styles';
+import config from '../../config/config';
+import Actions from '../../actions';
 
-const ActiveButton = ({ airspace, actions }) => {
-  return (
-      <PrimaryButton
-        title={airspace.pilotActive ? 'Set Ground' : 'Set Air'}
-        onPress={() => actions.changePilotStatus()}
-      />
-  )
-}
+// const ActiveButton = ({ airspace, actions }) => {
+//   return (
+//       <PrimaryButton
+//         title={airspace.pilotActive ? 'Set Ground' : 'Set Air'}
+//         onPress={() => actions.changePilotStatus()}
+//       />
+//   )
+//}
 
-class Pilot extends Component {
+export default class Pilot extends Component {
     render() {
-      const { pilotActive, airspace } = this.props.airspace;
+      //const { pilotActive, airspace } = this.props.airspace;
+      const airspace = true;
+      const pilotActive = true;
       //console.log(this.props);
       return (
         <Container>
@@ -32,30 +34,12 @@ class Pilot extends Component {
   	      <Text style={styles.header}>
     		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
     	  	</Text>
-          <ActiveButton {...this.props} />
+
         </Container>
       );
     }
 }
 
-function mapStateToProps(state) {
-  return {
-    airspace: {
-      pilotActive: state.airspace.pilotActive
-    }
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Pilot);
 
 // class Pilot extends Component {
 //
