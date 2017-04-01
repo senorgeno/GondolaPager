@@ -9,88 +9,72 @@ import styles from '../../styles';
 import config from '../../config/config';
 import Actions from '../../actions';
 
-// const ActiveButton = ({ airspace, actions }) => {
-//   return (
-//       <PrimaryButton
-//         title={airspace.pilotActive ? 'Set Ground' : 'Set Air'}
-//         onPress={() => actions.changePilotStatus()}
-//       />
-//   )
-//}
+//airspace.pilotActive
+const ActiveButton = ({ pilotActive, actions }) => {
+  return (
+      <PrimaryButton
+        title={pilotActive.pilotActive ? 'Set Ground' : 'Set Air'}
+        onPress={() => actions.changePilotStatus()}
+      />
+  )
+}
 
-export default class Pilot extends Component {
+class Pilot extends Component {
+    constructor(props) {
+  	  super(props);
+
+      //set up check flying ping
+      this._checkFlyingStatus();
+      setInterval(this._checkFlyingStatus, 2000);
+    }
+    _checkFlyingStatus = () => {
+    	fetch(config.AIRSPACE_STATUS_URL)
+    	 .then((response) => response.json())
+    	  .then((json) => {
+      		if(json.Status === 'Down' && this.props.airSpace.airSpace
+            || json.Status === 'OK' && ! this.props.airSpace.airSpace) {
+            this.props.actions.changeAirSpaceStatus();
+      		}
+    	})
+    	.catch((error) => {
+    		console.warn(error);
+    	});
+    }
+
     render() {
-      //const { pilotActive, airspace } = this.props.airspace;
-      const airspace = true;
-      const pilotActive = true;
-      //console.log(this.props);
+      const { pilotActive, airSpace } = this.props;
+
       return (
         <Container>
           <Card>
             <Text style={styles.header}>
-              GA756 Status: { airspace ? 'Active' : 'Closed' }
+              GA756 Status: { airSpace.airSpace ? 'Active' : 'Closed' }
       	  	</Text>
           </Card>
   	      <Text style={styles.header}>
-    		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
+    		    Pilot Status: { pilotActive.pilotActive ? 'In Air' : 'On Ground' }
     	  	</Text>
-
+          <ActiveButton {...this.props} />
         </Container>
       );
     }
 }
 
 
-// class Pilot extends Component {
-//
-//   constructor(props) {
-// 	  super(props);
-//
-//     //set up check flying ping
-//     this._checkFlyingStatus();
-//     setInterval(this._checkFlyingStatus, 2000);
-//   }
-//   changeStatus = () => {
-//     this.setState({pilotStatus: this.state.pilotStatus === 'Ground' ? 'Air' : 'Ground' });
-//   };
-//
-//   _checkFlyingStatus = () => {
-//   	let that = this;
-//
-//   	fetch(config.AIRSPACE_STATUS_URL)
-//   	.then((response) => response.json())
-//   	.then((json) => {
-//
-//   		if(json.Status === 'Down') {
-//   			that.setState({airspace : false});
-//   			//this._sendAlert();
-//   		} else {
-//   			that.setState({airspace : true});
-//   	  }
-//   	})
-//   	.catch((error) => {
-//   		console.warn(error);
-//   	});
-//   }
-//   _airSpaceStatus = () => {
-//     return this.state.airspace === true ? 'Open' : 'Closed';
-//   }
-//   render() {
-//
-//     return (
-//       <Container>
-//         <Card>
-//           <Text style={styles.header}>
-//     		    GA756 Status: {this._airSpaceStatus()}
-//     	  	</Text>
-//         </Card>
-// 	      <Text style={styles.header}>
-//   		    Pilot Status: {this.state.pilotStatus}
-//   	  	</Text>
-//
-//         <ActiveButton status={this.state.pilotStatus} onPress={this.changeStatus} />
-//
-//       </Container>
-//     );
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    pilotActive:  state.pilotActive,
+    airSpace: state.airSpace
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Pilot);

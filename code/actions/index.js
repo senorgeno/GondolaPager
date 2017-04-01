@@ -20,4 +20,10 @@ const changePilotStatus = () => {
   }
 }
 
-export default { logInUser, logOutUser, changePilotStatus };
+const changeAirSpaceStatus = () => {
+  return {
+    type: 'AIR_SPACE_STATUS'
+  }
+}
+
+export default { logInUser, logOutUser, changePilotStatus, changeAirSpaceStatus };
