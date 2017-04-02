@@ -4,9 +4,8 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { createLogger } from 'redux-logger'
 
 // Navigation
-import { NavigatorTabOne } from './screens/SignIn/navigationConfig';
-import { NavigatorTabTwo } from './screens/Pilot/navigationConfig';
-import { NavigatorTabThree } from './screens/Pilots/navigationConfig';
+import { PilotTab } from './screens/Pilot/navigationConfig';
+import { PilotsTab } from './screens/Pilots/navigationConfig';
 import { TabBar, tabBarReducer } from './screens/TabBar/TabBar';
 
 // Middleware
@@ -18,11 +17,9 @@ export default createStore(
   combineReducers({
     tabBar: tabBarReducer,
 
-    tabOne: (state,action) => NavigatorTabOne.router.getStateForAction(action,state),
+    pilotTab: (state,action) => PilotTab.router.getStateForAction(action,state),
 
-    tabTwo: (state,action) => NavigatorTabTwo.router.getStateForAction(action,state),
-
-    tabThree: (state,action) => NavigatorTabThree.router.getStateForAction(action,state),
+    pilotsTab: (state,action) => PilotsTab.router.getStateForAction(action,state),
 
     pilotActive: (state = false, action) => {
       if(action.type === 'PILOT_STATUS') {

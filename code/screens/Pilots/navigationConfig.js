@@ -4,12 +4,11 @@ import { StackNavigator } from 'react-navigation';
 import Pilots from './Pilots';
 
 const routeConfiguration = {
-  TabThreeScreenOne: { screen: Pilots },
+  Pilots: { screen: Pilots },
 }
 
-// going to disable the header for now
 const stackNavigatorConfiguration = {
-  initialRoute: 'TabThreeScreenOne'
+  initialRoute: 'Pilots'
 }
 
-export const NavigatorTabThree = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
+export const PilotsTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)

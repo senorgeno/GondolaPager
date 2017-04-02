@@ -10,8 +10,6 @@ const logOutUser = () => {
     type: 'LOG_OUT_USER',
   }
 }
-// logout: () => dispatch({ type: 'Logout' }),
-// login: () => dispatch({ type: 'Login' }),
 
 //change log in status
 const changePilotStatus = () => {

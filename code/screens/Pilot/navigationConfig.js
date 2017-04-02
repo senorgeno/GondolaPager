@@ -1,16 +1,15 @@
 import { StackNavigator } from 'react-navigation';
 
-// Screens
 import Pilot from './Pilot';
+import SignIn from '../SignIn/SignIn';
 
 const routeConfiguration = {
-  TabTwoScreenOne: { screen: Pilot },
+  SignIn: { screen: SignIn },
+  Pilot: { screen: Pilot },
 }
-// going to disable the header for now
 
 const stackNavigatorConfiguration = {
-  //headerMode: 'none',
-  initialRoute: 'TabTwoScreenOne'
+  initialRoute: 'Pilot'
 }
 
-export const NavigatorTabTwo = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
+export const PilotTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)

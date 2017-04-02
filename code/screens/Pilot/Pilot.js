@@ -9,7 +9,6 @@ import styles from '../../styles';
 import config from '../../config/config';
 import Actions from '../../actions';
 
-//airspace.pilotActive
 const ActiveButton = ({ pilotActive, actions }) => {
   return (
       <PrimaryButton
@@ -59,7 +58,6 @@ class Pilot extends Component {
       );
     }
 }
-
 
 function mapStateToProps(state) {
   return {
