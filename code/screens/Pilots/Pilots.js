@@ -6,7 +6,9 @@ import config from '../../config/config';
 
 
 class Pilots extends Component {
-
+  static navigationOptions = {
+    title: 'Active Pilots',
+  }
   constructor(props) {
     super(props);
     this.state = {

@@ -19,44 +19,47 @@ const ActiveButton = ({ pilotActive, actions }) => {
 }
 
 class Pilot extends Component {
-    constructor(props) {
-  	  super(props);
+  static navigationOptions = {
+    title: 'Pilot Status',
+  }
+  constructor(props) {
+	  super(props);
 
-      //set up check flying ping
-      this._checkFlyingStatus();
-      setInterval(this._checkFlyingStatus, 2000);
-    }
-    _checkFlyingStatus = () => {
-    	fetch(config.AIRSPACE_STATUS_URL)
-    	 .then((response) => response.json())
-    	  .then((json) => {
-      		if(json.Status === 'Down' && this.props.airSpace
-            || json.Status === 'OK' && ! this.props.airSpace) {
-            this.props.actions.changeAirSpaceStatus();
-      		}
-    	})
-    	.catch((error) => {
-    		console.warn(error);
-    	});
-    }
+    //set up check flying ping
+    this._checkFlyingStatus();
+    setInterval(this._checkFlyingStatus, 2000);
+  }
+  _checkFlyingStatus = () => {
+  	fetch(config.AIRSPACE_STATUS_URL)
+  	 .then((response) => response.json())
+  	  .then((json) => {
+    		if(json.Status === 'Down' && this.props.airSpace
+          || json.Status === 'OK' && ! this.props.airSpace) {
+          this.props.actions.changeAirSpaceStatus();
+    		}
+  	})
+  	.catch((error) => {
+  		console.warn(error);
+  	});
+  }
 
-    render() {
-      const { pilotActive, airSpace } = this.props;
+  render() {
+    const { pilotActive, airSpace } = this.props;
 
-      return (
-        <Container>
-          <Card>
-            <Text style={styles.header}>
-              GA756 Status: { airSpace ? 'Active' : 'Closed' }
-      	  	</Text>
-          </Card>
-  	      <Text style={styles.header}>
-    		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
+    return (
+      <Container>
+        <Card>
+          <Text style={styles.header}>
+            GA756 Status: { airSpace ? 'Active' : 'Closed' }
     	  	</Text>
-          <ActiveButton {...this.props} />
-        </Container>
-      );
-    }
+        </Card>
+	      <Text style={styles.header}>
+  		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
+  	  	</Text>
+        <ActiveButton {...this.props} />
+      </Container>
+    );
+  }
 }
 
 function mapStateToProps(state) {
