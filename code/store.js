@@ -44,6 +44,15 @@ export default createStore(
       }
       return state;
     },
+    loggedIn: (state = { loggedIn: false }, action) => {
+      if(action.type === 'LOG_IN_USER') {
+          return { ...state, loggedIn: true };
+      }
+      if(action.type === 'LOG_OUT_USER') {
+          return { ...state, loggedIn: false };
+      }
+      return state;
+    },
 
   }),
   middleware(),

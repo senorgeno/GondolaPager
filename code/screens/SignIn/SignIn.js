@@ -6,18 +6,11 @@ import Container from '../../components/Container';
 import { Card } from 'react-native-elements';
 import { Input, PrimaryButton, SecondaryButton } from '../../components/Form';
 import { NavigationActions } from 'react-navigation';
-//import styles from '../styles';
-//import config from '../config/config';
-//import Actions from '../actions';
 
-// const AuthButton = ({ isLoggedIn, actions }) => (
-//   <Button
-//     title={isLoggedIn ? 'Log Out' : 'Log In'}
-//     onPress={isLoggedIn ? () => actions.logOutUser() : () => actions.logInUser()}
-//   />
-// );
+import config from '../../config/config';
+import Actions from '../../actions';
 
-export default class SignIn extends Component  {
+class SignIn extends Component  {
 
   constructor(props) {
     super(props);
@@ -25,9 +18,60 @@ export default class SignIn extends Component  {
       this.state = {
         username: '',
   			password: '',
+        loading: false
       };
   }
-  render() {
+  _signIn = () => {
+    const { username, password } = this.state;
+    const { navigate } = this.props.navigation;
+
+    this.setState({ loading: true });
+
+    fetch(config.API_HOST + 'api/auth/login?email=' + username + '&pwd=' + password)
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({ loading: false });
+        if(json.result) {
+    				let t = new Date(json.expire);
+    				let formatted = t.toISOString();
+            this.props.actions.logInUser();
+            this.props.navigation.navigate('Pilot', { ...this.state });
+    			} else {
+    				Alert.alert(
+            	'Login Failed',
+            		'Please try again',
+          		);
+    			}
+
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+
+  }
+  _signOut = () => {
+    this.props.actions.logOutUser()
+  }
+  render () {
+		if (this.props.loggedIn.loggedIn) {
+			return this.renderStatusScreen();
+		}
+		return this.renderLogin();
+	}
+  renderStatusScreen() {
+    return (
+      <Container scroll>
+        <Card>
+          <Text>You are signed in</Text>
+        </Card>
+        <SecondaryButton
+          title="Sign Out"
+          onPress={this._signOut}
+        />
+      </Container>
+    );
+  }
+  renderLogin() {
     return (
       <Container scroll>
         <Card>
@@ -56,107 +100,19 @@ export default class SignIn extends Component  {
 
 }
 
+function mapStateToProps(state) {
+  return {
+    loggedIn: state.loggedIn
+  }
+}
 
-// class SignIn extends Component {
-//   constructor(props) {
-//     super(props);
-//
-//     this.state = {
-//       username: '',
-// 			password: '',
-// 			loggedIn: false,
-// 			expire: null,
-//       loading: false
-//     };
-//   }
-//
-//   _signIn = () => {
-//     const { username, password } = this.state;
-//     const { navigate } = this.props.navigation;
-//
-//     this.setState({ loading: true });
-//
-//     fetch(config.API_HOST + 'api/auth/login?email=' + username + '&pwd=' + password)
-//       .then((response) => response.json())
-//       .then((json) => {
-//         this.setState({ loading: false });
-//         if(json.result) {
-//     				let t = new Date(json.expire);
-//     				let formatted = t.toISOString();
-//     				this.setState({
-//     					loggedIn : true,
-//     					//expire : formatted,
-//     				});
-//             this.props.navigation.navigate('Pilot', { ...this.state });
-//     			} else {
-//     				Alert.alert(
-//             	'Login Failed',
-//             		'Please try again',
-//           		);
-//     			}
-//
-//       })
-//       .catch((error) => {
-//         console.warn(error);
-//       });
-//
-//   }
-//   _signOut = () => {
-//     this.setState({
-//       username: '',
-//       password: '',
-//       loggedIn: false,
-//       expire: null,
-//       pilotStatus: 'Ground',
-//     });
-//   }
-//   render () {
-// 		if (this.state.loggedIn) {
-// 			return this.renderStatusScreen();
-// 		}
-// 		return this.renderLogin();
-// 	}
-//   renderLogin() {
-//     return (
-//       <Container scroll>
-//         <Card>
-//           <Input
-//             label="Email or PIN"
-//             placeholder="Please enter your email or PIN..."
-//             onChangeText={(username) => this.setState({ username })}
-//             value={this.state.username}
-//           />
-//           <Input
-//             label="Password"
-//             placeholder="Please enter your password..."
-//             secureTextEntry
-//             onChangeText={(password) => this.setState({ password })}
-//             value={this.state.password}
-//           />
-//           <PrimaryButton
-//             title="Sign In"
-//             onPress={this._signIn}
-//             loading={this.state.loading}
-//           />
-//         </Card>
-//       </Container>
-//     );
-//   }
-//   renderStatusScreen() {
-//     return (
-//       <Container scroll>
-//         <Card>
-//           <Text>You are signed in</Text>
-//         </Card>
-//         <SecondaryButton
-//           title="Sign Out"
-//           onPress={this._signOut}
-//         />
-//       </Container>
-//     );
-//   }
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  }
+}
 
-
-
-//export default SignIn;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);
