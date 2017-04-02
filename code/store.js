@@ -14,13 +14,6 @@ const middleware = () => {
   return applyMiddleware(createLogger())
 }
 
-const initialPilotState = {
-  pilotActive: false
-}
-const initialAirSpaceState = {
-  airSpace: true,
-};
-
 export default createStore(
   combineReducers({
     tabBar: tabBarReducer,
@@ -31,25 +24,25 @@ export default createStore(
 
     tabThree: (state,action) => NavigatorTabThree.router.getStateForAction(action,state),
 
-    pilotActive: (state = initialPilotState, action) => {
+    pilotActive: (state = false, action) => {
       if(action.type === 'PILOT_STATUS') {
-          return { ...state, pilotActive: ! state.pilotActive };
+          return ! state;
       }
       return state;
     },
 
-    airSpace: (state = initialAirSpaceState, action) => {
+    airSpace: (state = true, action) => {
       if(action.type === 'AIR_SPACE_STATUS') {
-          return { ...state, airSpace: ! state.airSpace };
+          return ! state;
       }
       return state;
     },
-    loggedIn: (state = { loggedIn: false }, action) => {
+    loggedIn: (state = false, action) => {
       if(action.type === 'LOG_IN_USER') {
-          return { ...state, loggedIn: true };
+          return true;
       }
       if(action.type === 'LOG_OUT_USER') {
-          return { ...state, loggedIn: false };
+          return false;
       }
       return state;
     },

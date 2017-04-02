@@ -13,7 +13,7 @@ import Actions from '../../actions';
 const ActiveButton = ({ pilotActive, actions }) => {
   return (
       <PrimaryButton
-        title={pilotActive.pilotActive ? 'Set Ground' : 'Set Air'}
+        title={pilotActive ? 'Set Ground' : 'Set Air'}
         onPress={() => actions.changePilotStatus()}
       />
   )
@@ -31,8 +31,8 @@ class Pilot extends Component {
     	fetch(config.AIRSPACE_STATUS_URL)
     	 .then((response) => response.json())
     	  .then((json) => {
-      		if(json.Status === 'Down' && this.props.airSpace.airSpace
-            || json.Status === 'OK' && ! this.props.airSpace.airSpace) {
+      		if(json.Status === 'Down' && this.props.airSpace
+            || json.Status === 'OK' && ! this.props.airSpace) {
             this.props.actions.changeAirSpaceStatus();
       		}
     	})
@@ -48,11 +48,11 @@ class Pilot extends Component {
         <Container>
           <Card>
             <Text style={styles.header}>
-              GA756 Status: { airSpace.airSpace ? 'Active' : 'Closed' }
+              GA756 Status: { airSpace ? 'Active' : 'Closed' }
       	  	</Text>
           </Card>
   	      <Text style={styles.header}>
-    		    Pilot Status: { pilotActive.pilotActive ? 'In Air' : 'On Ground' }
+    		    Pilot Status: { pilotActive ? 'In Air' : 'On Ground' }
     	  	</Text>
           <ActiveButton {...this.props} />
         </Container>

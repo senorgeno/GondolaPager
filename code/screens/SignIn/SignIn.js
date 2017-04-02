@@ -53,7 +53,7 @@ class SignIn extends Component  {
     this.props.actions.logOutUser()
   }
   render () {
-		if (this.props.loggedIn.loggedIn) {
+		if (this.props.loggedIn) {
 			return this.renderStatusScreen();
 		}
 		return this.renderLogin();
