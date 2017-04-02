@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 
 import Pilot from './Pilot';
-import SignIn from '../SignIn/SignIn';
+import SignIn from './SignIn';
 
 const routeConfiguration = {
   SignIn: { screen: SignIn },

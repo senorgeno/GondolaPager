@@ -11,7 +11,9 @@ import config from '../../config/config';
 import Actions from '../../actions';
 
 class SignIn extends Component  {
-
+  static navigationOptions = {
+    title: 'Login',
+  }
   constructor(props) {
     super(props);
 
@@ -35,7 +37,7 @@ class SignIn extends Component  {
     				let t = new Date(json.expire);
     				let formatted = t.toISOString();
             this.props.actions.logInUser();
-            this.props.navigation.navigate('Pilot', { ...this.state });
+            this.props.navigation.navigate('Pilot');
     			} else {
     				Alert.alert(
             	'Login Failed',
@@ -62,7 +64,9 @@ class SignIn extends Component  {
     return (
       <Container scroll>
         <Card>
-          <Text>You are signed in</Text>
+          <Text onPress={() => this.props.navigation.navigate('Pilot')}>
+            You are signed in. Click here to change pilot status.
+          </Text>
         </Card>
         <SecondaryButton
           title="Sign Out"
